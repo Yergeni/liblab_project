@@ -1,0 +1,6 @@
+.app_main-container {
+  height: 100dvh;
+  background-color: var(--bs-dark);
+  /* background-image: url('./assets/bg-wide-dark.jpg');
+  background-position: center; */
+}

@@ -1,0 +1,14 @@
+.movie-info_title {
+	color: var(--bs-gray-400);
+	padding: 2rem 0;
+	font-family: "MedievalSharp";
+	font-size: 3rem;
+	letter-spacing: 0.2rem;
+	font-weight: bold;
+}
+
+.movie-info_info {
+	color: var(--bs-gray-200);
+	margin: 0;
+	font-size: 1.25rem;
+}

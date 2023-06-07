@@ -1,0 +1,4 @@
+.movie-quotes_container {
+  max-height: calc(100dvh - 150px);
+  overflow-y: auto;
+}
