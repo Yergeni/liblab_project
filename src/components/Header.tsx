@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 
+import Logo from "../assets/lotr-logo-ring.png";
+
 import { ROUTES } from "../common/constants";
 
 export default function Header() {
@@ -11,7 +13,7 @@ export default function Header() {
 		<Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
 			<Container>
 				<LinkContainer to={ROUTES.HOME}>
-					<Navbar.Brand>LOTR Info</Navbar.Brand>
+					<img src={Logo} width="auto" height="56" alt="LOTR logo" />
 				</LinkContainer>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
