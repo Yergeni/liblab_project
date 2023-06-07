@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Loader from "../components/Loader";
 
-import { MOVIE_PATH, ROUTES } from "../common/constants";
+import { MOVIE_PATH } from "../common/constants";
 
 /* Types */
 import { Movie } from "../common/types";
