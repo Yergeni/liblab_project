@@ -2,6 +2,8 @@
 
 Liblab case study project. Instructions [here](https://liblab.com/front-end-project).
 
+[Demo](https://yero-lotr-info.netlify.app/)
+
 # Main Technologies Used
 
 - HTML
