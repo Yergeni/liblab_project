@@ -27,6 +27,17 @@ export default function MovieQuotes({ characters }: MovieProps) {
 	const [quotes, setQuotes] = useState<Quote[]>([]);
 	const [pagination, setPagination] = useState<Pagination>();
 
+	const allQuotesLoaded = pagination && pagination.page === pagination.pages;
+	const loadQuotesBtnText = () => {
+		if (quotes.length > 0 && !allQuotesLoaded) {
+			return "Load More Quotes";
+		} else if (quotes.length > 0 && allQuotesLoaded) {
+			return "All Quotes Loaded";
+		}
+
+		return "Load Movie Quotes";
+	};
+
 	const getCharacterName = useMemo(
 		() => (characterId: string) => {
 			return characters?.filter((c) => c._id === characterId)[0].name;
@@ -85,20 +96,15 @@ export default function MovieQuotes({ characters }: MovieProps) {
 				})}
 			</ListGroup>
 			<Stack>
-				{pagination && pagination.page !== pagination.pages ? (
-					<Button
-						className="mt-2"
-						variant="primary"
-						size="lg"
-						onClick={handleLoadMore}
-					>
-						Load More Quotes
-					</Button>
-				) : (
-					<Button variant="primary" size="lg" onClick={handleLoadMore}>
-						Load Movie Quotes
-					</Button>
-				)}
+				<Button
+					variant="primary"
+					size="lg"
+					onClick={handleLoadMore}
+					disabled={allQuotesLoaded}
+					className={quotes.length > 0 ? "mt-3" : ""}
+				>
+					{loadQuotesBtnText()}
+				</Button>
 			</Stack>
 		</div>
 	);
