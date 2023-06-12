@@ -53,7 +53,7 @@ export default function CharactersPage() {
 						className="me-2 p-2"
 						aria-label="Search"
 					/>
-					<Button variant="outline-success" disabled={loading}>
+					<Button type="submit" variant="outline-success" disabled={loading}>
 						Search
 					</Button>
 				</Form>
