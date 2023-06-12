@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -13,14 +13,15 @@ import { CHARACTER_PATH } from "../common/constants";
 import { axiosInstance } from "../utils/http.utils";
 import CharacterList from "../components/character/CharacterList";
 
-/* TODO */
 export default function CharactersPage() {
 	const searchRef = useRef<HTMLInputElement | null>(null);
 	const [loading, setLoading] = useState(false);
 	const [fetchError, setFetchError] = useState(false);
 	const [characters, setCharacters] = useState<Character[]>([]);
 
-	const handleSearch = async () => {
+	const handleSearch = async (e: FormEvent) => {
+		e.preventDefault();
+
 		if (searchRef?.current?.value) {
 			setLoading(true);
 			axiosInstance
@@ -44,7 +45,7 @@ export default function CharactersPage() {
 		<>
 			{loading && <Loader />}
 			<Stack>
-				<Form className="d-flex">
+				<Form className="d-flex" onSubmit={handleSearch}>
 					<Form.Control
 						ref={searchRef}
 						type="search"
@@ -52,11 +53,7 @@ export default function CharactersPage() {
 						className="me-2 p-2"
 						aria-label="Search"
 					/>
-					<Button
-						variant="outline-success"
-						disabled={loading}
-						onClick={handleSearch}
-					>
+					<Button variant="outline-success" disabled={loading}>
 						Search
 					</Button>
 				</Form>
