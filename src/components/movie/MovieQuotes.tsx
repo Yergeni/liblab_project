@@ -40,7 +40,8 @@ export default function MovieQuotes({ characters }: MovieProps) {
 
 	const getCharacterName = useMemo(
 		() => (characterId: string) => {
-			return characters?.filter((c) => c._id === characterId)[0].name;
+			const foundCharacter = characters?.find((c) => c._id === characterId);
+			return foundCharacter ? foundCharacter.name : "A Character"; 
 		},
 		[characters]
 	);
